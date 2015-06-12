@@ -3,6 +3,7 @@ MAINTAINER Remi D
 
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN apt-get update -y
 RUN apt-get install -y -q apache2 libapache2-mod-php5 php5-mysql git supervisor
 RUN mkdir -p /var/log/supervisor
 
