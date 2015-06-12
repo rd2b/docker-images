@@ -3,12 +3,12 @@
 	// *** Database configuration (important!) ***
 	// *******************************************
 
-	define('DB_TYPE', getenv("DB_TYPE")); // or mysql
-	define('DB_HOST', getenv("DB_HOST"));
-	define('DB_USER', getenv("DB_USER"));
-	define('DB_NAME', getenv("DB_NAME"));
-	define('DB_PASS', getenv("DB_PASS"));
-	define('DB_PORT', getenv("DB_PORT")); // usually 5432 for PostgreSQL, 3306 for MySQL
+	define('DB_TYPE', "DB_TYPE"); // or mysql
+	define('DB_HOST', "DB_HOST");
+	define('DB_USER', "DB_USER");
+	define('DB_NAME', "DB_NAME");
+	define('DB_PASS', "DB_PASS");
+	define('DB_PORT', "DB_PORT"); // usually 5432 for PostgreSQL, 3306 for MySQL
 
 	define('MYSQL_CHARSET', 'UTF8');
 	// Connection charset for MySQL. If you have a legacy database and/or experience
@@ -18,7 +18,7 @@
 	// *** Basic settings (important!) ***
 	// ***********************************
 
-	define('SELF_URL_PATH', getenv("URL_PATH"));
+	define('SELF_URL_PATH', "URL_PATH");
 	// Full URL of your tt-rss installation. This should be set to the
 	// location of tt-rss directory, e.g. http://example.org/tt-rss/
 	// You need to set this option correctly otherwise several features
