@@ -3,7 +3,7 @@ MAINTAINER Remi D
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get install -y -q apache2 libapache2-mod-php5 php5-mysql git
+RUN apt-get install -y -q apache2 libapache2-mod-php5 php5-mysql git supervisord
 RUN rm -r /var/www
            
 RUN git clone https://github.com/gothfox/Tiny-Tiny-RSS.git /var/www
@@ -23,4 +23,4 @@ RUN sed -i -e "s#SELFURLPATH#$URL_PATH#" /var/www/config.php
 EXPOSE 80
 EXPOSE 443
 
-RUN service apache2 start
+CMD service apache2 start
