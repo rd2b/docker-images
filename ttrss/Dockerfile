@@ -23,4 +23,4 @@ RUN sed -i -e "s#SELFURLPATH#$URL_PATH#" /var/www/config.php
 EXPOSE 80
 EXPOSE 443
 
-RUN /usr/sbin/apache2
+RUN service apache2 start
