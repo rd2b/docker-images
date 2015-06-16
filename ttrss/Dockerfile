@@ -35,7 +35,6 @@ EXPOSE 443
 ADD run /usr/local/bin/
 RUN chmod +x /usr/local/bin/run
 
-VOLUME /var/www
-VOLUME /var/log
+VOLUME ["/var/www", "/var/log", "/etc" ]
 
 CMD ["/usr/local/bin/run"]
