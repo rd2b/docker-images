@@ -11,19 +11,22 @@ RUN mkdir -p /var/log/supervisor
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+RUN rm -r /var/www
+RUN mkdir -p /var/www
 
            
 RUN git clone https://github.com/gothfox/Tiny-Tiny-RSS.git /var/www/html
-WORKDIR /var/www
-ADD config.php /var/www/ttrss/config.php
-RUN chown www-data:www-data -R /var/www
-RUN sed -i -e "s#DBTYPE#$DB_TYPE#g" /var/www/ttrss/config.php 
-RUN sed -i -e "s#DBHOST#$DB_HOST#"  /var/www/ttrss/config.php
-RUN sed -i -e "s#DBUSER#$DB_USER#"  /var/www/ttrss/config.php
-RUN sed -i -e "s#DBNAME#$DB_NAME#"  /var/www/ttrss/config.php
-RUN sed -i -e "s#DBPASS#$DB_PASS#"  /var/www/ttrss/config.php
-RUN sed -i -e "s#DBPORT#$DB_PORT#"  /var/www/ttrss/config.php
-RUN sed -i -e "s#SELFURLPATH#$URL_PATH#" /var/www/ttrss/config.php
+WORKDIR /var/www/html
+
+ADD config.php config.php
+RUN chown www-data:www-data -R config.php
+RUN sed -i -e "s#DBTYPE#$DB_TYPE#g" config.php 
+RUN sed -i -e "s#DBHOST#$DB_HOST#"  config.php
+RUN sed -i -e "s#DBUSER#$DB_USER#"  config.php
+RUN sed -i -e "s#DBNAME#$DB_NAME#"  config.php
+RUN sed -i -e "s#DBPASS#$DB_PASS#"  config.php
+RUN sed -i -e "s#DBPORT#$DB_PORT#"  config.php
+RUN sed -i -e "s#SELFURLPATH#$URL_PATH#" config.php
 
 
 
