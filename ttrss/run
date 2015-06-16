@@ -1,28 +1,28 @@
 #!/bin/bash
 
-cp -r /tmp/ttrss /var/www/html
-cp /tmp/config.php /var/www/html
+cp -r /home/ttrss /var/www/html
+cp /home/config.php /var/www/html
 
-rm -r /tmp/ttrss /tmp/config.php
+rm -r /home/ttrss /home/config.php
 
 cd /var/www/html
 
-chown www-data:www-data -R /var/www                                         
+chown -R www-data:www-data  /var/www
 
-chmod -R 755 cache/images 
-chmod -R 755 cache/upload 
-chmod -R 755 cache/export 
-chmod -R 755 cache/js 
+chmod -R 755 cache/images
+chmod -R 755 cache/upload
+chmod -R 755 cache/export
+chmod -R 755 cache/js
 chmod -R 755 feed-icons lock
 
 
-sed -i -e "s#ENVDBTYPE#$DB_TYPE#g" config.php                               
-sed -i -e "s#ENVDBHOST#$DB_HOST#"  config.php                               
-sed -i -e "s#ENVDBUSER#$DB_USER#"  config.php                               
-sed -i -e "s#ENVDBNAME#$DB_NAME#"  config.php                               
-sed -i -e "s#ENVDBPASS#$DB_PASS#"  config.php                               
-sed -i -e "s#ENVDBPORT#$DB_PORT#"  config.php                               
-sed -i -e "s#ENVURLPATH#$URL_PATH#" config.php   
+sed -i -e "s#ENVDBTYPE#$DB_TYPE#g" config.php
+sed -i -e "s#ENVDBHOST#$DB_HOST#"  config.php
+sed -i -e "s#ENVDBUSER#$DB_USER#"  config.php
+sed -i -e "s#ENVDBNAME#$DB_NAME#"  config.php
+sed -i -e "s#ENVDBPASS#$DB_PASS#"  config.php
+sed -i -e "s#ENVDBPORT#$DB_PORT#"  config.php
+sed -i -e "s#ENVURLPATH#$URL_PATH#" config.php
 
 mkdir -p /var/log/supervisor
 
