@@ -1,6 +1,7 @@
 #!/bin/bash
 
 mkdir -p /var/www/html
+mkdir -p /var/log/supervisor
 
 cp -r /home/ttrss /var/www/html
 cp /home/config.php /var/www/html
@@ -11,11 +12,11 @@ cd /var/www/html
 
 chown -R www-data:www-data  /var/www
 
-chmod -R 755 cache/images
-chmod -R 755 cache/upload
-chmod -R 755 cache/export
-chmod -R 755 cache/js
-chmod -R 755 feed-icons lock
+chmod -R 755 /var/www/html/cache/images
+chmod -R 755 /var/www/html/cache/upload
+chmod -R 755 /var/www/html/cache/export
+chmod -R 755 /var/www/html/cache/js
+chmod -R 755 /var/www/html/feed-icons /var/www/html/lock
 
 
 sed -i -e "s#ENVDBTYPE#$DB_TYPE#g" config.php
