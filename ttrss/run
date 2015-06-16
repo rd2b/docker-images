@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p /var/www/html
+
 cp -r /home/ttrss /var/www/html
 cp /home/config.php /var/www/html
 
@@ -24,6 +26,5 @@ sed -i -e "s#ENVDBPASS#$DB_PASS#"  config.php
 sed -i -e "s#ENVDBPORT#$DB_PORT#"  config.php
 sed -i -e "s#ENVURLPATH#$URL_PATH#" config.php
 
-mkdir -p /var/log/supervisor
 
 exec supervisord -n
