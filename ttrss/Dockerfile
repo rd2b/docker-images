@@ -11,6 +11,7 @@ RUN apt-get install -y -q apache2 libapache2-mod-php5 php5-mysql git supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 VOLUME ["/var/www", "/var/log" ]
+RUN rm -r /var/www/html
            
 RUN git clone https://github.com/gothfox/Tiny-Tiny-RSS.git /var/www/html
 WORKDIR /var/www/html
