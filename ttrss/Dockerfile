@@ -29,6 +29,7 @@ RUN sed -i -e "s#DBPORT#$DB_PORT#"  config.php
 RUN sed -i -e "s#SELFURLPATH#$URL_PATH#" config.php
 
 
+RUN chown www-data:www-data -R /var/www
 RUN chmod -R 755 cache/images
 RUN chmod -R 755 cache/upload
 RUN chmod -R 755 cache/export
