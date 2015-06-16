@@ -1,2 +1,13 @@
 #!/bin/bash
+
+cd /var/www/html
+
+sed -i -e "s#ENVDBTYPE#$DB_TYPE#g" config.php                               
+sed -i -e "s#ENVDBHOST#$DB_HOST#"  config.php                               
+sed -i -e "s#ENVDBUSER#$DB_USER#"  config.php                               
+sed -i -e "s#ENVDBNAME#$DB_NAME#"  config.php                               
+sed -i -e "s#ENVDBPASS#$DB_PASS#"  config.php                               
+sed -i -e "s#ENVDBPORT#$DB_PORT#"  config.php                               
+sed -i -e "s#ENVURLPATH#$URL_PATH#" config.php   
+
 exec supervisord -n

@@ -19,28 +19,14 @@ RUN git clone https://github.com/gothfox/Tiny-Tiny-RSS.git /var/www/html
 WORKDIR /var/www/html
 
 ADD config.php config.php
-RUN chown www-data:www-data -R config.php
-RUN sed -i -e "s#ENVDBTYPE#$DB_TYPE#g" config.php 
-RUN sed -i -e "s#ENVDBHOST#$DB_HOST#"  config.php
-RUN sed -i -e "s#ENVDBUSER#$DB_USER#"  config.php
-RUN sed -i -e "s#ENVDBNAME#$DB_NAME#"  config.php
-RUN sed -i -e "s#ENVDBPASS#$DB_PASS#"  config.php
-RUN sed -i -e "s#ENVDBPORT#$DB_PORT#"  config.php
-RUN sed -i -e "s#ENVURLPATH#$URL_PATH#" config.php
-
+ADD run /usr/local/bin/
+RUN chmod +x /usr/local/bin/run
 
 RUN chown www-data:www-data -R /var/www
-RUN chmod -R 755 cache/images
-RUN chmod -R 755 cache/upload
-RUN chmod -R 755 cache/export
-RUN chmod -R 755 cache/js
-RUN chmod -R 755 feed-icons
-RUN chmod -R 755 lock
+RUN chmod -R 755 cache/images cache/upload cache/export cache/js feed-icons lock
 
 EXPOSE 80
 EXPOSE 443
-ADD run /usr/local/bin/
-RUN chmod +x /usr/local/bin/run
 
 VOLUME ["/var/www", "/var/log", "/etc" ]
 
