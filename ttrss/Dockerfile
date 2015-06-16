@@ -20,13 +20,13 @@ WORKDIR /var/www/html
 
 ADD config.php config.php
 RUN chown www-data:www-data -R config.php
-RUN sed -i -e "s#DBTYPE#$DB_TYPE#g" config.php 
-RUN sed -i -e "s#DBHOST#$DB_HOST#"  config.php
-RUN sed -i -e "s#DBUSER#$DB_USER#"  config.php
-RUN sed -i -e "s#DBNAME#$DB_NAME#"  config.php
-RUN sed -i -e "s#DBPASS#$DB_PASS#"  config.php
-RUN sed -i -e "s#DBPORT#$DB_PORT#"  config.php
-RUN sed -i -e "s#SELFURLPATH#$URL_PATH#" config.php
+RUN sed -i -e "s#DB_TYPE#$DB_TYPE#g" config.php 
+RUN sed -i -e "s#DB_HOST#$DB_HOST#"  config.php
+RUN sed -i -e "s#DB_USER#$DB_USER#"  config.php
+RUN sed -i -e "s#DB_NAME#$DB_NAME#"  config.php
+RUN sed -i -e "s#DB_PASS#$DB_PASS#"  config.php
+RUN sed -i -e "s#DB_PORT#$DB_PORT#"  config.php
+RUN sed -i -e "s#URL_PATH#$URL_PATH#" config.php
 
 
 RUN chown www-data:www-data -R /var/www
