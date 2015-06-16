@@ -29,6 +29,12 @@ RUN sed -i -e "s#DBPORT#$DB_PORT#"  config.php
 RUN sed -i -e "s#SELFURLPATH#$URL_PATH#" config.php
 
 
+RUN chmod -R 755 cache/images
+RUN chmod -R 755 cache/upload
+RUN chmod -R 755 cache/export
+RUN chmod -R 755 cache/js
+RUN chmod -R 755 feed-icons
+RUN chmod -R 755 lock
 
 EXPOSE 80
 EXPOSE 443
