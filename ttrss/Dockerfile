@@ -12,8 +12,6 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ADD config.php /tmp/config.php
 
-WORKDIR /var/www/html
-
 ADD run /usr/local/bin/
 RUN chmod +x /usr/local/bin/run
 
