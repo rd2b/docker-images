@@ -15,7 +15,7 @@ ADD config.php /home/config.php
 ADD run /usr/local/bin/
 RUN chmod +x /usr/local/bin/run
 
-VOLUME ["/var/www", "/var/log" ]
+VOLUME ["/var/www" ]
 
 EXPOSE 80
 EXPOSE 443
