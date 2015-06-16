@@ -13,7 +13,7 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
            
-RUN git clone https://github.com/gothfox/Tiny-Tiny-RSS.git /var/www/ttrss
+RUN git clone https://github.com/gothfox/Tiny-Tiny-RSS.git /var/www/html
 WORKDIR /var/www
 ADD config.php /var/www/ttrss/config.php
 RUN chown www-data:www-data -R /var/www
