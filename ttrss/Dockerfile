@@ -34,5 +34,6 @@ ADD run /usr/local/bin/
 RUN chmod +x /usr/local/bin/run
 
 VOLUME /var/www
+VOLUME /var/log
 
 CMD ["/usr/local/bin/run"]
