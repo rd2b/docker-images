@@ -14,6 +14,7 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN rm -r /var/www
 RUN mkdir -p /var/www
 
+VOLUME ["/var/www", "/var/log", "/etc" ]
            
 RUN git clone https://github.com/gothfox/Tiny-Tiny-RSS.git /var/www/html
 WORKDIR /var/www/html
@@ -28,6 +29,5 @@ RUN chmod -R 755 cache/images cache/upload cache/export cache/js feed-icons lock
 EXPOSE 80
 EXPOSE 443
 
-VOLUME ["/var/www", "/var/log", "/etc" ]
 
 CMD ["/usr/local/bin/run"]
