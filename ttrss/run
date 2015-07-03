@@ -1,11 +1,16 @@
 #!/bin/bash
 
+
 mkdir -p /var/www/html
 mkdir -p /var/log/supervisor
+
+
+rm -rf /var/www/html
 
 cp -r /home/ttrss /var/www/html
 cp /home/config.php /var/www/html
 
+#php /home/configure-db.php
 rm -r /home/ttrss /home/config.php
 
 cd /var/www/html
@@ -27,5 +32,24 @@ sed -i -e "s#ENVDBPASS#$DB_PASS#"  config.php
 sed -i -e "s#ENVDBPORT#$DB_PORT#"  config.php
 sed -i -e "s#ENVURLPATH#$URL_PATH#" config.php
 
+
+
+if ! mysql -u $DB_USER -h ${DB_HOST} -p${DB_PASS} -e "USE ${DB_NAME}; SHOW TABLES;"|grep "ttrss_users"; then
+    date
+    echo "Creating..."
+    /usr/bin/mysql -u $DB_USER -h ${DB_HOST} -p${DB_PASS} -e "
+        USE ${DB_NAME};
+        SOURCE /var/www/html/schema/ttrss_schema_mysql.sql;"
+else
+    date
+    echo "${DB_NAME} already present"
+fi
+
+
+echo "Creating database:"
+
+cd /var/www/html
+sudo -u www-data ./update.php --update-schema
+sudo -u www-data ./update.php --indexes
 
 exec supervisord -n

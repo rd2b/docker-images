@@ -11,6 +11,7 @@
 	define('DB_PORT', "ENVDBPORT"); // usually 5432 for PostgreSQL, 3306 for MySQL
 
 	define('MYSQL_CHARSET', 'UTF8');
+	define('_INSTALLER_IGNORE_CONFIG_CHECK', 'TRUE');
 	// Connection charset for MySQL. If you have a legacy database and/or experience
 	// garbage unicode characters with this option, try setting it to a blank string.
 
