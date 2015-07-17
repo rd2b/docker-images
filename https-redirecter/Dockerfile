@@ -4,7 +4,7 @@ MAINTAINER Remi D
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y
-RUN apt-get install -y -q apache2 libapache2-mod-php5 php5-mysql git supervisor php5-cli mysql-client 
+RUN apt-get install -y -q lighttpd
 
 ADD redirect-http.conf /etc/lighttpd/conf-available/99-redirect-http.conf
 RUN ln -sf /etc/lighttpd/conf-available/99-redirect-http.conf /etc/lighttpd/conf-enabled/99-redirect-http.conf
