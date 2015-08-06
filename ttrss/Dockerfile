@@ -10,7 +10,7 @@ RUN a2enmod ssl
 
 RUN mkdir -p /var/log/supervisor
 
-RUN git clone https://github.com/gothfox/Tiny-Tiny-RSS.git /home/ttrss
+RUN git clone https://tt-rss.org/git/tt-rss.git /home/ttrss
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
