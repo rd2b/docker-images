@@ -13,4 +13,4 @@ RUN /etc/init.d/lighttpd restart
 
 EXPOSE 80
 
-
+CMD ["/usr/sbin/lighttpd", "-f", "/etc/lighttpd/lighttpd.conf", "-D"]
